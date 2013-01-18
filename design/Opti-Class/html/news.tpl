@@ -33,7 +33,6 @@
     </div>
 </div>
 <div class="clearfix"></div>
-<p class="social-buttons right">SOCIAL BUTTONS</p>
 <!-- Статьи #End /-->
 
 {include file='pagination.tpl'}

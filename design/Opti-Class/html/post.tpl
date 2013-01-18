@@ -12,6 +12,8 @@
                 </div>
                 <div class="text-full">
                     {$post->text}
+
+                    <!-- социальные кнопки -->
                     <div class="social-buttons">
                         <div id="vk_like" style="display:inline-block;*display:inline;zoom:1;vertical-align:top;"></div>
                         {literal}
@@ -31,6 +33,7 @@
                             <script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
                         </div>
                     </div>
+                    <!-- социальные кнопки (The End) -->
                 </div>
             </li>
         </ul>

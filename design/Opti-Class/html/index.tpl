@@ -61,7 +61,7 @@
 	{literal}
 
     <script type="text/javascript">
-        VK.init({apiId: 3360551, onlyWidgets: true});
+        VK.init({apiId: 3366633, onlyWidgets: true});
     </script>
 
 	<script src="js/autocomplete/jquery.autocomplete-min.js" type="text/javascript"></script>
@@ -151,9 +151,9 @@
             {foreach $pages as $p}
                 {* Выводим только страницы из первого меню *}
                 {if $p->menu_id == 1 AND $p->name != 'home'}
-                <li {if $page && $page->id == $p->id}class="active"{/if}>
-                    <a data-page="{$p->id}" {if $p->url == "catalog"}data-toggle="collapse" href="#cat"{else}href="{$p->url}"{/if} >{$p->name|escape}</a>
-                </li>
+                    <li class="{if $page && $page->id == $p->id}active{elseif $category->id != null AND $p->url == 'catalog'}active{/if}">
+                        <a data-page="{$p->id}" {if $p->url == "catalog"}data-toggle="collapse" href="#cat"{else}href="{$p->url}"{/if} >{$p->name|escape}</a>
+                    </li>
                 {/if}
             {/foreach}
         </ul>

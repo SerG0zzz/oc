@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-01-17 16:22:24
+<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 15:21:50
          compiled from "Y:\domains\oc//design/Opti-Class/html\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1624650f7fb10e2c353-89589996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:87550f93e5e4bad90-74367665%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2d409863391162d728e7a1a8f975f0322c595b80' => 
     array (
       0 => 'Y:\\domains\\oc//design/Opti-Class/html\\index.tpl',
-      1 => 1358428943,
+      1 => 1358511709,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1624650f7fb10e2c353-89589996',
+  'nocache_hash' => '87550f93e5e4bad90-74367665',
   'function' => 
   array (
   ),
@@ -81,7 +81,7 @@ $_smarty_tpl->decodeProperties(array (
 	
 
     <script type="text/javascript">
-        VK.init({apiId: 3360551, onlyWidgets: true});
+        VK.init({apiId: 3366633, onlyWidgets: true});
     </script>
 
 	<script src="js/autocomplete/jquery.autocomplete-min.js" type="text/javascript"></script>
@@ -179,12 +179,12 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['p']->key => $_smarty_tpl->tpl_vars['p']->value){
 ?>
                 <?php if ($_smarty_tpl->getVariable('p')->value->menu_id==1&&$_smarty_tpl->getVariable('p')->value->name!='home'){?>
-                <li <?php if ($_smarty_tpl->getVariable('page')->value&&$_smarty_tpl->getVariable('page')->value->id==$_smarty_tpl->getVariable('p')->value->id){?>class="active"<?php }?>>
-                    <a data-page="<?php echo $_smarty_tpl->getVariable('p')->value->id;?>
+                    <li class="<?php if ($_smarty_tpl->getVariable('page')->value&&$_smarty_tpl->getVariable('page')->value->id==$_smarty_tpl->getVariable('p')->value->id){?>active<?php }elseif($_smarty_tpl->getVariable('category')->value->id!=null&&$_smarty_tpl->getVariable('p')->value->url=='catalog'){?>active<?php }?>">
+                        <a data-page="<?php echo $_smarty_tpl->getVariable('p')->value->id;?>
 " <?php if ($_smarty_tpl->getVariable('p')->value->url=="catalog"){?>data-toggle="collapse" href="#cat"<?php }else{ ?>href="<?php echo $_smarty_tpl->getVariable('p')->value->url;?>
 "<?php }?> ><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('p')->value->name);?>
 </a>
-                </li>
+                    </li>
                 <?php }?>
             <?php }} ?>
         </ul>

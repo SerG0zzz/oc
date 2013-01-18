@@ -952,6 +952,7 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
     text-align: center;
     font-size: 14px;
     font-weight: bold;
+    text-transform: capitalize;
     color: #fff;
     background: url("../images/label.png") no-repeat;
 }
@@ -992,7 +993,9 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
 .related_products                                               {border-top: 1px solid #ccc;}
 .catalog-items li, .related_products li
 {
-    float: left;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
     padding: 0 0 40px 20px;
     vertical-align: top;
     width: 220px;
@@ -1045,7 +1048,7 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
 }
 .products h1
 {
-    margin: 0;
+    margin: 10px 0;
     font-size: 23px;
     font-weight: normal;
     font-family: Tahoma, sans-serif;
@@ -1056,6 +1059,68 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
     font-size: 14px;
     font-weight: normal;
     font-family: Tahoma, sans-serif;
+}
+.product-price table
+{
+    display: inline;
+}
+.product-price .price
+{
+    font-size: 18px;
+}
+.product-price .price > span
+{
+    font-size: 28px;
+}
+.product-price table + .button
+{
+    margin: 7px 0 0 10px;
+    padding: 0 10px;
+    vertical-align: top;
+    height: 27px;
+    border: 0;
+    color: #fff;
+    border-radius: 3px;
+    background: url(../images/buy-big-bg.png) repeat-x;
+}
+.description p
+{
+    margin: 20px 0;
+    line-height: 20px;
+    color: #111;
+}
+.clearfix + .social-buttons
+{
+    margin: 15px 0 30px 0;
+}
+.products .images
+{
+    margin: 0 0 0 -30px;
+    padding: 0;
+    list-style: none;
+}
+.products .images li
+{
+    margin: 15px 0 15px 30px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 95px;
+    height: 95px;
+    vertical-align: top;
+    border: 1px solid #ccc;
+}
+.products .images li > span
+{
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.products .images li > span > a
+{
+    display: table-cell;
+    vertical-align: middle;
 }
 
 /* ====================================================================================================================

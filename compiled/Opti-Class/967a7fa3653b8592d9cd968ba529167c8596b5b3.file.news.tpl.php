@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-01-17 11:42:59
+<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 14:37:14
          compiled from "Y:\domains\oc//design/Opti-Class/html\news.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:225350f7b99397f134-17715186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1771950f933ea327484-41969174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '967a7fa3653b8592d9cd968ba529167c8596b5b3' => 
     array (
       0 => 'Y:\\domains\\oc//design/Opti-Class/html\\news.tpl',
-      1 => 1358161738,
+      1 => 1358504416,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '225350f7b99397f134-17715186',
+  'nocache_hash' => '1771950f933ea327484-41969174',
   'function' => 
   array (
   ),
@@ -67,7 +67,6 @@ if ($_smarty_tpl->_count($_from) > 0){
     </div>
 </div>
 <div class="clearfix"></div>
-<p class="social-buttons right">SOCIAL BUTTONS</p>
 <!-- Статьи #End /-->
 
 <?php $_template = new Smarty_Internal_Template('pagination.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);

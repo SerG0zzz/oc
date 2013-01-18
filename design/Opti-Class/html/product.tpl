@@ -23,6 +23,10 @@
                     <img src="{$product->image->filename|resize:560:420}" alt="{$product->product->name|escape}" />
                 </a>
             {else}
+                <a>
+                    <img src="../files/products/nopic.jpg" alt="нет картинки"/>
+                </a>
+            {/if}
         </div>
         <!-- Большое фото (The End)-->
 
@@ -42,25 +46,23 @@
 </div>
 <div class="right-col w360">
 
-    <!-- Описание товара -->
-    <div class="description">
-        {$product->body}
-
+    <!-- Цена продукта если есть варианты продукта тоже их выводим -->
+    <div class="product-price">
         {if $product->variants|count > 0}
             <!-- Выбор варианта товара -->
             <form class="variants" action="/cart">
                 <table>
                     {foreach $product->variants as $v}
                         <tr class="variant">
-                            <td>
+                            <td style="display: none;">
                                 <input id="product_{$v->id}" name="variant" value="{$v->id}" type="radio" class="variant_radiobutton" {if $product->variant->id==$v->id}checked{/if} {if $product->variants|count<2}style="display:none;"{/if}/>
                             </td>
-                            <td>
+                            <td style="display: none;">
                                 {if $v->name}<label class="variant_name" for="product_{$v->id}">{$v->name}</label>{/if}
                             </td>
                             <td>
                                 {if $v->compare_price > 0}<span class="compare_price">{$v->compare_price|convert}</span>{/if}
-                                <span class="price">{$v->price|convert} <span class="currency">{$currency->sign|escape}</span></span>
+                                <span class="price">Цена: <span>{$v->price|convert} <span class="currency">{$currency->sign|escape}</span></span></span>
                             </td>
                         </tr>
                     {/foreach}
@@ -68,9 +70,15 @@
                 <input type="submit" class="button" value="Купить" data-result-text="добавлено"/>
             </form>
             <!-- Выбор варианта товара (The End) -->
-        {else}
+            {else}
             Нет в наличии
         {/if}
+    </div>
+    <!-- Цена продукта (The End) -->
+
+    <!-- Описание товара -->
+    <div class="description">
+        {$product->body}
     </div>
     <!-- Описание товара (The End)-->
 
@@ -78,11 +86,13 @@
     {if $product->images|count>1}
         <ul class="images">
         {* cut удаляет первую фотографию, если нужно начать 2-й - пишем cut:2 и тд *}
-            {foreach $product->images|cut as $i=>$image}
+            {foreach $product->images|cut as $i=>$image name=foo}
                 <li>
-                    <a href="{$image->filename|resize:960:720:w}" class="zoom" data-rel="group">
-                        <img src="{$image->filename|resize:95:95}" alt="{$product->name|escape}" />
-                    </a>
+                    <span>
+                        <a href="{$image->filename|resize:960:720:w}" class="zoom" data-rel="group">
+                            <img src="{$image->filename|resize:95:95}" alt="{$product->name|escape}" />
+                        </a>
+                    </span>
                 </li>
             {/foreach}
         </ul>
@@ -91,6 +101,28 @@
 </div>
 <!-- Описание товара (The End)-->
 <div class="clearfix"></div>
+
+<!-- социальные кнопки -->
+<div class="social-buttons">
+    <div id="vk_like" style="display:inline-block;*display:inline;zoom:1;vertical-align:top;"></div>
+    {literal}
+        <script type="text/javascript">
+            VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+        </script>
+    {/literal}
+    <div id="fb-root" style="display:inline-block;*display:inline;zoom:1;height:20px;vertical-align:top;"></div>
+    {literal}
+        <fb:like href="" send="false" layout="button_count" width="90" show_faces="false" font="lucida grande"></fb:like>
+    {/literal}
+    <div class="tweeter" style="display:inline-block;*display:inline;zoom:1;height:20px;vertical-align:top;padding-left:30px;">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ru">Tweet</a>
+    </div>
+    <div style="display:inline-block;*display:inline;zoom:1;height:20px;vertical-align:top;width:120px;">
+        <a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" {literal}data-mrc-config="{'cm' : '2', 'ck' : '1', 'sz' : '20', 'st' : '1', 'tp' : 'ok'}"{/literal}>Нравится</a>
+        <script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
+    </div>
+</div>
+<!-- социальные кнопки (The End) -->
 
 {if $product->features}
     <!-- Характеристики товара -->
