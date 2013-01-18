@@ -192,7 +192,7 @@
     {if $page->url == "blog"}blog{/if} {if $page->url == "" AND $post->url != "" AND !$post->news}blog{/if}
     {if $page->url == "partners"}partners{/if} {if $page->url  == "about"}about{/if}
     {if $page->url == "services"}services{/if} {if $page->menu_id == 4}services-one{/if}
-    {if $product->url != ""}products{/if} clearfix">
+    {if $product->url != ""}products{/if} {if $page->url == "contacts"}contacts{/if} clearfix">
         {$content}
     </div>
     <!-- Основная часть (The End) -->

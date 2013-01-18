@@ -87,17 +87,34 @@
         <ul class="images">
         {* cut удаляет первую фотографию, если нужно начать 2-й - пишем cut:2 и тд *}
             {foreach $product->images|cut as $i=>$image name=foo}
-                <li>
-                    <span>
-                        <a href="{$image->filename|resize:960:720:w}" class="zoom" data-rel="group">
-                            <img src="{$image->filename|resize:95:95}" alt="{$product->name|escape}" />
-                        </a>
-                    </span>
-                </li>
+                {if $smarty.foreach.foo.index < 3}
+                    <li>
+                        <span>
+                            <a href="{$image->filename|resize:960:720:w}" class="zoom" data-rel="group">
+                                <img src="{$image->filename|resize:95:95}" alt="{$product->name|escape}" />
+                            </a>
+                        </span>
+                    </li>
+                {else}
+                    <li style="display:none;">
+                        <span>
+                            <a href="{$image->filename|resize:960:720:w}" class="zoom" data-rel="group">
+                                <img src="{$image->filename|resize:95:95}" alt="{$product->name|escape}" />
+                            </a>
+                        </span>
+                    </li>
+                {/if}
             {/foreach}
         </ul>
     {/if}
     <!-- Дополнительные фото продукта (The End)-->
+
+    <!-- Кнопки "Где забрать?" и "Задать вопрос" -->
+    <div class="product-buttons">
+        <a href="contacts/" class="where-get">Где забрать?</a>
+        <a href="faq/" class="ask-me">Задать вопрос</a>
+    </div>
+    <!-- Кнопки "Где забрать?" и "Задать вопрос" (The End) -->
 </div>
 <!-- Описание товара (The End)-->
 <div class="clearfix"></div>

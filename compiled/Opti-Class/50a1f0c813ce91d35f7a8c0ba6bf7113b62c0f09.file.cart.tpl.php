@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-01-17 13:59:50
+<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 18:14:09
          compiled from "Y:\domains\oc//design/Opti-Class/html\cart.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2680950f7d9a670d0e5-90562724%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1402950f966c1e4dfd9-05623925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '50a1f0c813ce91d35f7a8c0ba6bf7113b62c0f09' => 
     array (
       0 => 'Y:\\domains\\oc//design/Opti-Class/html\\cart.tpl',
-      1 => 1358420389,
+      1 => 1358425332,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2680950f7d9a670d0e5-90562724',
+  'nocache_hash' => '1402950f966c1e4dfd9-05623925',
   'function' => 
   array (
   ),
@@ -23,48 +23,46 @@ $_smarty_tpl->decodeProperties(array (
 <?php $_smarty_tpl->tpl_vars['meta_title'] = new Smarty_variable("Корзина", null, 1);?>
 
 <h1>
-<?php if ($_smarty_tpl->getVariable('cart')->value->purchases){?>В корзине <?php echo $_smarty_tpl->getVariable('cart')->value->total_products;?>
+    <?php if ($_smarty_tpl->getVariable('cart')->value->purchases){?>В корзине <?php echo $_smarty_tpl->getVariable('cart')->value->total_products;?>
  <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['plural'][0][0]->plural_modifier($_smarty_tpl->getVariable('cart')->value->total_products,'товар','товаров','товара');?>
 
-<?php }else{ ?>Корзина пуста<?php }?>
+    <?php }else{ ?>Корзина пуста<?php }?>
 </h1>
 
 <?php if ($_smarty_tpl->getVariable('cart')->value->purchases){?>
-<form method="post" name="cart">
-<table id="purchases">
-
-<?php  $_smarty_tpl->tpl_vars['purchase'] = new Smarty_Variable;
+    <form method="post" name="cart">
+    <table id="purchases">
+        <?php  $_smarty_tpl->tpl_vars['purchase'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('cart')->value->purchases; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['purchase']->key => $_smarty_tpl->tpl_vars['purchase']->value){
 ?>
-<tr>
-	<td class="image">
-		<?php $_smarty_tpl->tpl_vars['image'] = new Smarty_variable($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['first'][0][0]->first_modifier($_smarty_tpl->getVariable('purchase')->value->product->images), null, null);?>
-		<?php if ($_smarty_tpl->getVariable('image')->value){?>
-		<a href="products/<?php echo $_smarty_tpl->getVariable('purchase')->value->product->url;?>
+            <tr>
+                <td class="image">
+                    <?php $_smarty_tpl->tpl_vars['image'] = new Smarty_variable($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['first'][0][0]->first_modifier($_smarty_tpl->getVariable('purchase')->value->product->images), null, null);?>
+                    <?php if ($_smarty_tpl->getVariable('image')->value){?>
+                    <a href="products/<?php echo $_smarty_tpl->getVariable('purchase')->value->product->url;?>
 "><img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,50,50);?>
 " alt="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('product')->value->name);?>
 "></a>
-		<?php }?>
-	</td>
-	
-	<td class="name">
-		<a href="products/<?php echo $_smarty_tpl->getVariable('purchase')->value->product->url;?>
+                    <?php }?>
+                </td>
+                <td class="name">
+                    <a href="products/<?php echo $_smarty_tpl->getVariable('purchase')->value->product->url;?>
 "><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('purchase')->value->product->name);?>
 </a>
-		<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('purchase')->value->variant->name);?>
-			
-	</td>
-	<td class="price">
-		<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert(($_smarty_tpl->getVariable('purchase')->value->variant->price));?>
+                    <?php echo smarty_modifier_escape($_smarty_tpl->getVariable('purchase')->value->variant->name);?>
+
+                </td>
+                <td class="price">
+                    <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert(($_smarty_tpl->getVariable('purchase')->value->variant->price));?>
  <?php echo $_smarty_tpl->getVariable('currency')->value->sign;?>
 
-	</td>
-	<td class="amount">
-		<select name="amounts[<?php echo $_smarty_tpl->getVariable('purchase')->value->variant->id;?>
+                </td>
+                <td class="amount">
+                    <select name="amounts[<?php echo $_smarty_tpl->getVariable('purchase')->value->variant->id;?>
 ]" onchange="document.cart.submit();">
-			<?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']);
+                        <?php unset($_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['name'] = 'amounts';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['start'] = (int)1;
 $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['loop'] = is_array($_loop=$_smarty_tpl->getVariable('purchase')->value->variant->stock+1) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -92,58 +90,57 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['index_next'] = $_
 $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['amounts']['total']);
 ?>
-			<option value="<?php echo $_smarty_tpl->getVariable('smarty')->value['section']['amounts']['index'];?>
+                        <option value="<?php echo $_smarty_tpl->getVariable('smarty')->value['section']['amounts']['index'];?>
 " <?php if ($_smarty_tpl->getVariable('purchase')->value->amount==$_smarty_tpl->getVariable('smarty')->value['section']['amounts']['index']){?>selected<?php }?>><?php echo $_smarty_tpl->getVariable('smarty')->value['section']['amounts']['index'];?>
  <?php echo $_smarty_tpl->getVariable('settings')->value->units;?>
 </option>
-			<?php endfor; endif; ?>
-		</select>
-	</td>
-	<td class="price">
-		<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert(($_smarty_tpl->getVariable('purchase')->value->variant->price*$_smarty_tpl->getVariable('purchase')->value->amount));?>
+                        <?php endfor; endif; ?>
+                    </select>
+                </td>
+                <td class="price">
+                    <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert(($_smarty_tpl->getVariable('purchase')->value->variant->price*$_smarty_tpl->getVariable('purchase')->value->amount));?>
 &nbsp;<?php echo $_smarty_tpl->getVariable('currency')->value->sign;?>
 
-	</td>
-	
-	<td class="remove">
-		<a href="cart/remove/<?php echo $_smarty_tpl->getVariable('purchase')->value->variant->id;?>
+                </td>
+                <td class="remove">
+                    <a href="cart/remove/<?php echo $_smarty_tpl->getVariable('purchase')->value->variant->id;?>
 ">
-		<img src="design/<?php echo $_smarty_tpl->getVariable('settings')->value->theme;?>
+                    <img src="design/<?php echo $_smarty_tpl->getVariable('settings')->value->theme;?>
 /images/delete.png" title="Удалить из корзины" alt="Удалить из корзины">
-		</a>
-	</td>
-			
-</tr>
-<?php }} ?>
-<?php if ($_smarty_tpl->getVariable('user')->value->discount){?>
-<tr>
-	<th class="image"></th>
-	<th class="name">скидка</th>
-	<th class="price"></th>
-	<th class="amount"></th>
-	<th class="price">
-		<?php echo $_smarty_tpl->getVariable('user')->value->discount;?>
-&nbsp;%
-	</th>
-	<th class="remove"></th>
-</tr>
-<?php }?>
+                    </a>
+                </td>
 
-<tr>
-	<th class="image"></th>
-	<th class="name"></th>
-	<th class="price" colspan="4">
-		Итого
-		<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->getVariable('cart')->value->total_price);?>
+            </tr>
+        <?php }} ?>
+        <?php if ($_smarty_tpl->getVariable('user')->value->discount){?>
+            <tr>
+                <th class="image"></th>
+                <th class="name">скидка</th>
+                <th class="price"></th>
+                <th class="amount"></th>
+                <th class="price">
+                    <?php echo $_smarty_tpl->getVariable('user')->value->discount;?>
+&nbsp;%
+                </th>
+                <th class="remove"></th>
+            </tr>
+        <?php }?>
+
+        <tr>
+            <th class="image"></th>
+            <th class="name"></th>
+            <th class="price" colspan="4">
+                Итого
+                <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->getVariable('cart')->value->total_price);?>
 &nbsp;<?php echo $_smarty_tpl->getVariable('currency')->value->sign;?>
 
-	</th>
-</tr>
-</table>
-<?php if ($_smarty_tpl->getVariable('deliveries')->value){?>
-<h2>Выберите способ доставки:</h2>
-<ul id="deliveries">
-	<?php  $_smarty_tpl->tpl_vars['delivery'] = new Smarty_Variable;
+            </th>
+        </tr>
+    </table>
+    <?php if ($_smarty_tpl->getVariable('deliveries')->value){?>
+        <h2>Выберите способ доставки:</h2>
+        <ul id="deliveries">
+            <?php  $_smarty_tpl->tpl_vars['delivery'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('deliveries')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['delivery']->index=-1;
 if ($_smarty_tpl->_count($_from) > 0){
@@ -151,71 +148,68 @@ if ($_smarty_tpl->_count($_from) > 0){
  $_smarty_tpl->tpl_vars['delivery']->index++;
  $_smarty_tpl->tpl_vars['delivery']->first = $_smarty_tpl->tpl_vars['delivery']->index === 0;
 ?>
-	<li>
-		<div class="checkbox">
-			<input type="radio" name="delivery_id" value="<?php echo $_smarty_tpl->getVariable('delivery')->value->id;?>
+                <li>
+                    <div class="checkbox">
+                        <input type="radio" name="delivery_id" value="<?php echo $_smarty_tpl->getVariable('delivery')->value->id;?>
 " <?php if ($_smarty_tpl->getVariable('delivery_id')->value==$_smarty_tpl->getVariable('delivery')->value->id){?>checked<?php }elseif($_smarty_tpl->tpl_vars['delivery']->first){?>checked<?php }?> id="deliveries_<?php echo $_smarty_tpl->getVariable('delivery')->value->id;?>
 ">
-		</div>
-		
-			<h3>
-			<label for="deliveries_<?php echo $_smarty_tpl->getVariable('delivery')->value->id;?>
-">
-			<?php echo $_smarty_tpl->getVariable('delivery')->value->name;?>
+                    </div>
 
-			<?php if ($_smarty_tpl->getVariable('cart')->value->total_price<$_smarty_tpl->getVariable('delivery')->value->free_from&&$_smarty_tpl->getVariable('delivery')->value->price>0){?>
-				(<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->getVariable('delivery')->value->price);?>
+                    <h3>
+                        <label for="deliveries_<?php echo $_smarty_tpl->getVariable('delivery')->value->id;?>
+">
+                            <?php echo $_smarty_tpl->getVariable('delivery')->value->name;?>
+
+                            <?php if ($_smarty_tpl->getVariable('cart')->value->total_price<$_smarty_tpl->getVariable('delivery')->value->free_from&&$_smarty_tpl->getVariable('delivery')->value->price>0){?>
+                                (<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->getVariable('delivery')->value->price);?>
 &nbsp;<?php echo $_smarty_tpl->getVariable('currency')->value->sign;?>
 )
-			<?php }elseif($_smarty_tpl->getVariable('cart')->value->total_price>=$_smarty_tpl->getVariable('delivery')->value->free_from){?>
-				(бесплатно)
-			<?php }?>
-			</label>
-			</h3>
-			<div class="description">
-			<?php echo $_smarty_tpl->getVariable('delivery')->value->description;?>
+                            <?php }elseif($_smarty_tpl->getVariable('cart')->value->total_price>=$_smarty_tpl->getVariable('delivery')->value->free_from){?>
+                                (бесплатно)
+                            <?php }?>
+                        </label>
+                    </h3>
+                    <div class="description"><?php echo $_smarty_tpl->getVariable('delivery')->value->description;?>
+</div>
+                </li>
+            <?php }} ?>
+        </ul>
+    <?php }?>
 
-			</div>
-	</li>
-	<?php }} ?>
-</ul>
-<?php }?>
-    
-<h2>Адрес получателя</h2>
-	
-<div class="form cart_form">         
-	<?php if ($_smarty_tpl->getVariable('error')->value){?>
-        <div class="message_error">
-            <?php if ($_smarty_tpl->getVariable('error')->value=='empty_name'){?>Введите имя<?php }?>
-            <?php if ($_smarty_tpl->getVariable('error')->value=='empty_email'){?>Введите email<?php }?>
-            <?php if ($_smarty_tpl->getVariable('error')->value=='captcha'){?>Капча введена неверно<?php }?>
-        </div>
-	<?php }?>
-	<label>Имя, фамилия</label>
-	<input name="name" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('name')->value);?>
+    <h2>Адрес получателя</h2>
+
+    <div class="form cart_form">
+        <?php if ($_smarty_tpl->getVariable('error')->value){?>
+            <div class="message_error">
+                <?php if ($_smarty_tpl->getVariable('error')->value=='empty_name'){?>Введите имя<?php }?>
+                <?php if ($_smarty_tpl->getVariable('error')->value=='empty_email'){?>Введите email<?php }?>
+                <?php if ($_smarty_tpl->getVariable('error')->value=='captcha'){?>Капча введена неверно<?php }?>
+            </div>
+        <?php }?>
+        <label>Имя, фамилия</label>
+        <input name="name" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('name')->value);?>
 " data-format=".+" data-notice="Введите имя"/>
-	
-	<label>Email</label>
-	<input name="email" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('email')->value);?>
+
+        <label>Email</label>
+        <input name="email" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('email')->value);?>
 " data-format="email" data-notice="Введите email" />
 
-	<label>Телефон</label>
-	<input name="phone" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('phone')->value);?>
+        <label>Телефон</label>
+        <input name="phone" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('phone')->value);?>
 " />
-	
-	<label>Адрес доставки</label>
-	<input name="address" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('address')->value);?>
+
+        <label>Адрес доставки</label>
+        <input name="address" type="text" value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('address')->value);?>
 "/>
 
-	<label>Комментарий к&nbsp;заказу</label>
-	<textarea name="comment" id="order_comment"><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('comment')->value);?>
+        <label>Комментарий к&nbsp;заказу</label>
+        <textarea name="comment" id="order_comment"><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('comment')->value);?>
 </textarea>
-	
-	
-	<input type="submit" name="checkout" class="button" value="Оформить заказ">
-	</div>
-   
-</form>
+
+        <input type="submit" name="checkout" class="button" value="Оформить заказ">
+        </div>
+
+    </form>
 <?php }else{ ?>
-  В корзине нет товаров
+    В корзине нет товаров
 <?php }?>

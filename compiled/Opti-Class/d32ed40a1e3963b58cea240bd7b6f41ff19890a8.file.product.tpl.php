@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 16:46:46
+<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 18:26:47
          compiled from "Y:\domains\oc//design/Opti-Class/html\product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2637750f95246737862-84826961%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1607250f969b77aa700-13232177%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd32ed40a1e3963b58cea240bd7b6f41ff19890a8' => 
     array (
       0 => 'Y:\\domains\\oc//design/Opti-Class/html\\product.tpl',
-      1 => 1358516804,
+      1 => 1358522709,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2637750f95246737862-84826961',
+  'nocache_hash' => '1607250f969b77aa700-13232177',
   'function' => 
   array (
   ),
@@ -103,24 +103,46 @@ if ($_smarty_tpl->_count($_from) > 0){
             <?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;
  $_from = $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['cut'][0][0]->cut_modifier($_smarty_tpl->getVariable('product')->value->images); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['image']->key => $_smarty_tpl->tpl_vars['image']->value){
  $_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['image']->key;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
 ?>
-                <li>
-                    <span>
-                        <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,960,720,'w');?>
+                <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
+                    <li>
+                        <span>
+                            <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,960,720,'w');?>
 " class="zoom" data-rel="group">
-                            <img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,95,95);?>
+                                <img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,95,95);?>
 " alt="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('product')->value->name);?>
 " />
-                        </a>
-                    </span>
-                </li>
+                            </a>
+                        </span>
+                    </li>
+                <?php }else{ ?>
+                    <li style="display:none;">
+                        <span>
+                            <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,960,720,'w');?>
+" class="zoom" data-rel="group">
+                                <img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['resize'][0][0]->resize_modifier($_smarty_tpl->getVariable('image')->value->filename,95,95);?>
+" alt="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('product')->value->name);?>
+" />
+                            </a>
+                        </span>
+                    </li>
+                <?php }?>
             <?php }} ?>
         </ul>
     <?php }?>
     <!-- Дополнительные фото продукта (The End)-->
+
+    <!-- Кнопки "Где забрать?" и "Задать вопрос" -->
+    <div class="product-buttons">
+        <a href="contacts/" class="where-get">Где забрать?</a>
+        <a href="faq/" class="ask-me">Задать вопрос</a>
+    </div>
+    <!-- Кнопки "Где забрать?" и "Задать вопрос" (The End) -->
 </div>
 <!-- Описание товара (The End)-->
 <div class="clearfix"></div>

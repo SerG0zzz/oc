@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 15:21:50
+<?php /* Smarty version Smarty-3.0.7, created on 2013-01-18 17:54:32
          compiled from "Y:\domains\oc//design/Opti-Class/html\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:87550f93e5e4bad90-74367665%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2091250f96228aafa76-10805737%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2d409863391162d728e7a1a8f975f0322c595b80' => 
     array (
       0 => 'Y:\\domains\\oc//design/Opti-Class/html\\index.tpl',
-      1 => 1358511709,
+      1 => 1358520870,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '87550f93e5e4bad90-74367665',
+  'nocache_hash' => '2091250f96228aafa76-10805737',
   'function' => 
   array (
   ),
@@ -232,7 +232,7 @@ if ($_smarty_tpl->_count($_from) > 0){
     <?php if ($_smarty_tpl->getVariable('page')->value->url=="blog"){?>blog<?php }?> <?php if ($_smarty_tpl->getVariable('page')->value->url==''&&$_smarty_tpl->getVariable('post')->value->url!=''&&!$_smarty_tpl->getVariable('post')->value->news){?>blog<?php }?>
     <?php if ($_smarty_tpl->getVariable('page')->value->url=="partners"){?>partners<?php }?> <?php if ($_smarty_tpl->getVariable('page')->value->url=="about"){?>about<?php }?>
     <?php if ($_smarty_tpl->getVariable('page')->value->url=="services"){?>services<?php }?> <?php if ($_smarty_tpl->getVariable('page')->value->menu_id==4){?>services-one<?php }?>
-    <?php if ($_smarty_tpl->getVariable('product')->value->url!=''){?>products<?php }?> clearfix">
+    <?php if ($_smarty_tpl->getVariable('product')->value->url!=''){?>products<?php }?> <?php if ($_smarty_tpl->getVariable('page')->value->url=="contacts"){?>contacts<?php }?> clearfix">
         <?php echo $_smarty_tpl->getVariable('content')->value;?>
 
     </div>

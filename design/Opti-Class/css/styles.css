@@ -739,7 +739,8 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
     padding: 0 0 0 40px;
     font-size: 14px;
 }
-.main-consultant .ask-me, .ask-me-wrap .ask-me, .faq .ask-us .ask-me, .blog .send-comment .send
+.main-consultant .ask-me, .ask-me-wrap .ask-me, .faq .ask-us .ask-me, .blog .send-comment .send,
+.products .where-get, .products .ask-me
 {
     display: inline-block;
     *display: inline;
@@ -1042,10 +1043,7 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
 
 .w600                                                           {width: 600px;}
 .w360                                                           {width: 360px;}
-.related_products
-{
-    padding: 10px 0 0 0;
-}
+.related_products                                               {padding: 10px 0 0 0;}
 .products h1
 {
     margin: 10px 0;
@@ -1060,18 +1058,23 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
     font-weight: normal;
     font-family: Tahoma, sans-serif;
 }
-.product-price table
+.products .left-col .product
 {
-    display: inline;
+    display: table;
+    width: 100%;
+    height: 300px;
+    text-align: center;
 }
-.product-price .price
+.products .left-col .product .image
 {
-    font-size: 18px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    min-height: 300px;
 }
-.product-price .price > span
-{
-    font-size: 28px;
-}
+.product-price table                                            {display: inline;}
+.product-price .price                                           {font-size: 18px;}
+.product-price .price > span                                    {font-size: 28px;}
 .product-price table + .button
 {
     margin: 7px 0 0 10px;
@@ -1089,10 +1092,7 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
     line-height: 20px;
     color: #111;
 }
-.clearfix + .social-buttons
-{
-    margin: 15px 0 30px 0;
-}
+.clearfix + .social-buttons                                     {margin: 15px 0 30px 0;}
 .products .images
 {
     margin: 0 0 0 -30px;
@@ -1121,6 +1121,26 @@ header .catalog-submenu li a:hover, header .catalog-submenu li.active a
 {
     display: table-cell;
     vertical-align: middle;
+}
+.products .ask-me, .products .where-get
+{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 5px 0 30px 0;
+    height: 41px;
+    line-height: 38px;
+}
+.products .ask-me                                        {margin-left: 20px;}
+
+/* ====================================================================================================================
+    contacts styles
+==================================================================================================================== */
+
+.contacts h1
+{
+    font-weight: normal;
+    color: #555;
 }
 
 /* ====================================================================================================================
