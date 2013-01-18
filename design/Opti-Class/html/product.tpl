@@ -17,13 +17,13 @@
     <h1 data-product="{$product->id}">{$product->name|escape}</h1>
     <div class="product">
         <!-- Большое фото -->
-        {if $product->image}
         <div class="image">
-            <a href="{$product->image->filename|resize:960:720:w}" class="zoom" data-rel="group">
-                <img src="{$product->image->filename|resize:560:420}" alt="{$product->product->name|escape}" />
-            </a>
+            {if $product->image}
+                <a href="{$product->image->filename|resize:960:720:w}" class="zoom" data-rel="group">
+                    <img src="{$product->image->filename|resize:560:420}" alt="{$product->product->name|escape}" />
+                </a>
+            {else}
         </div>
-        {/if}
         <!-- Большое фото (The End)-->
 
         {*
